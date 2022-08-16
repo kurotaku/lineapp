@@ -16,5 +16,9 @@
     "styled-components": "^5.3.5",
     "styled-reset": "^4.4.2",
     "yup": "^0.32.11"
+  },
+  "scripts": {
+    "build:js": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --loader:.js=jsx",
+    "build:css": "node-sass ./app/assets/stylesheets/ -o app/assets/builds/"
   }
 }
