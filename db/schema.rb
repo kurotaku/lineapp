@@ -11,11 +11,26 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_08_18_133243) do
-  create_table "line_accounts", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
-    t.string "line_user_id"
+  create_table "customers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "first_name"
+    t.string "family_name"
+    t.string "number"
+    t.string "phone", default: "", null: false
+    t.integer "line_status", default: 10, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["number"], name: "index_customers_on_number", unique: true
+    t.index ["phone"], name: "index_customers_on_phone", unique: true
+  end
+
+  create_table "line_accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.string "line_user_id", comment: "LINEアカウントのIDでリレーションのIDではない"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_line_accounts_on_customer_id"
   end
 
+  add_foreign_key "line_accounts", "customers"
 end
