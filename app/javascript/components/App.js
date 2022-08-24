@@ -5,6 +5,7 @@ import reset from 'styled-reset'
 import { createGlobalStyle } from 'styled-components';
 import liff from '@line/liff';
 import axios from 'axios'
+import Navigation from './Navigation';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -64,6 +65,7 @@ const App = () => {
       <Router>
         <GlobalStyle />
         <AppRoutes />
+        <Navigation />
       </Router>
     </CurrentLineAccount.Provider>
     
