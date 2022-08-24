@@ -5,7 +5,7 @@ import reset from 'styled-reset'
 import { createGlobalStyle } from 'styled-components';
 import liff from '@line/liff';
 import axios from 'axios'
-import Navigation from './Navigation';
+import Navigation from './uiParts/navigation/Navigation';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
