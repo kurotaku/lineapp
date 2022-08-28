@@ -3,7 +3,7 @@ import { Container } from '../../uiParts/column/Container';
 import { BoxRounded } from '../../uiParts/box/Box';
 import { PrimaryLinkBtn } from '../../uiParts/button/Button';
 import { CurrentLineAccount } from '../../App'
-import { useBarcode } from '@createnextapp/react-barcode'
+import { useBarcode } from 'react-barcode'
 
 const Show = () => {
   const currentLineAccount = useContext(CurrentLineAccount);
@@ -11,7 +11,7 @@ const Show = () => {
 
   if(currentLineAccount == []) return(<></>);
 
-  if(currentLineAccount.customer_id){
+  if(currentLineAccount.customer){
     return (
       <Container>
         <BoxRounded>
