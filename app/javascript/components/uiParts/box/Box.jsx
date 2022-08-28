@@ -5,6 +5,7 @@ const Wrap = styled.div`
   background-color: white;
   border-radius: 16px;
   padding: 20px;
+  margin-bottom: 24px;
 `
 export const BoxRounded = ({children}) => {
   return (

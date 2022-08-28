@@ -6,6 +6,7 @@ class CreateCustomers < ActiveRecord::Migration[7.0]
       t.string :number
       t.string :phone, null: false, default: ""
       t.integer :line_status, null: false, default: 10
+      t.integer :point, null: false, default: 0
 
       t.timestamps
 

@@ -8,6 +8,7 @@
 #  line_status :integer          default(10), not null
 #  number      :string(255)
 #  phone       :string(255)      default(""), not null
+#  point       :integer          default(0), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -17,5 +18,5 @@
 #  index_customers_on_phone   (phone) UNIQUE
 #
 class CustomerSerializer < BaseSerializer
-  attributes %w[id number phone display_phone]
+  attributes %w[id number phone display_phone point]
 end

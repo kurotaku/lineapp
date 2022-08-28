@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import IconLink from './IconLink'
-import Color from '../../const/Color'
+import Color from '../../../const/Color'
 
 const List = styled.ul`
   display: flex;

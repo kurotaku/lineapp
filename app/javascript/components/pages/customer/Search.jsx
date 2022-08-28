@@ -1,23 +1,23 @@
-import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios'
-import { CurrentLineAccount } from '../../App'
+import { useNavigate } from 'react-router-dom'
+import { useAccountContext } from '../../../context/AccountContext';
 import { Container } from '../../uiParts/column/Container';
 import { BoxRounded } from '../../uiParts/box/Box';
 import * as Form from '../../uiParts/form/Form'
 import { PrimarySubmit } from '../../uiParts/button/Button';
 
-const Search = () => {
-  const currentLineAccount = useContext(CurrentLineAccount);
+const Search = (props) => {
+  const {account, setAccount} = useAccountContext();
+  const navigate = useNavigate();
   const schema = yup.object().required().shape(
     {
       number: yup.string().required('必須項目です'),
       phone: yup.string().required('必須項目です'),
     }
   )
-
   const {
     register,
     handleSubmit,
@@ -33,10 +33,10 @@ const Search = () => {
     axios.get('/api/private/customers', {params: params})
     .then(resp => {
       if (resp.data.length == 1){
-        console.log(resp.data);
-        axios.patch('/api/private/line_accounts/' + currentLineAccount.id, {line_account: {customer_id: resp.data[0].id}})
+        axios.patch('/api/private/line_accounts/' + account.id, {line_account: {customer_id: resp.data[0].id}})
         .then(resp => {
-          console.log('success');
+          setAccount(resp.data);
+          navigate('../');
         })
         
       }

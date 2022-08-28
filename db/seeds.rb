@@ -14,7 +14,7 @@ ApplicationRecord.transaction do
   end
 
   customers = [
-    {number: random_number(11), family_name: '鈴木', first_name: '一郎', phone: '08011111111'},
+    {number: random_number(11), family_name: '鈴木', first_name: '一郎', phone: '08011111111', point: 12_095},
     {number: random_number(11), family_name: '鈴木', first_name: '二郎', phone: '08011111112'},
     {number: random_number(11), family_name: '鈴木', first_name: '三郎', phone: '08011111113'},
     {number: random_number(11), family_name: '鈴木', first_name: '四郎', phone: '08011111114'},

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Color from '../../const/Color'
+import Color from '../../../const/Color'
 
 const Btn = styled.button`
   display: inline-block;

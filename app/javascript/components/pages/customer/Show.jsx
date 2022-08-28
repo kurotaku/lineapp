@@ -1,21 +1,24 @@
-import React, { useContext } from 'react'
+import React from 'react';
 import { Container } from '../../uiParts/column/Container';
 import { BoxRounded } from '../../uiParts/box/Box';
 import { PrimaryLinkBtn } from '../../uiParts/button/Button';
-import { CurrentLineAccount } from '../../App'
-import { useBarcode } from 'react-barcode'
+import Barcode from 'react-barcode';
+import { useAccountContext } from '../../../context/AccountContext';
 
 const Show = () => {
-  const currentLineAccount = useContext(CurrentLineAccount);
-  console.log(currentLineAccount);
+  const {account} = useAccountContext();
 
-  if(currentLineAccount == []) return(<></>);
-
-  if(currentLineAccount.customer){
+  if(account.customer){
     return (
       <Container>
         <BoxRounded>
           <p>会員証カード</p>
+          <div style={{textAlign: "center"}}><Barcode value={account.customer.number} /></div>
+        </BoxRounded>
+
+        <BoxRounded>
+          <p>保有ポイント</p>
+          <div>{account.customer.point.toLocaleString()}pt</div>
         </BoxRounded>
       </Container>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components';
-import Color from '../../const/Color';
+import Color from '../../../const/Color';
 
 export const DefaultFormStyle = createGlobalStyle`
   input[type="text"]{

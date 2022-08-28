@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_18_133243) do
     t.string "number"
     t.string "phone", default: "", null: false
     t.integer "line_status", default: 10, null: false
+    t.integer "point", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["number"], name: "index_customers_on_number", unique: true
