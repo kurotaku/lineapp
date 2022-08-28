@@ -17,5 +17,5 @@
 #  index_customers_on_phone   (phone) UNIQUE
 #
 class Customer < ApplicationRecord
-  has_one :line_account
+  has_one :line_account, dependent: :nullify
 end

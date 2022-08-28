@@ -18,10 +18,10 @@
 #
 FactoryBot.define do
   factory :customer do
-    first_name { "MyString" }
-    family_name { "MyString" }
-    number { "MyString" }
-    phone { "MyString" }
+    first_name { 'MyString' }
+    family_name { 'MyString' }
+    number { 'MyString' }
+    phone { 'MyString' }
     line_status { 1 }
   end
 end

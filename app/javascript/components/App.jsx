@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 import liff from '@line/liff';
 import axios from 'axios'
 import Navigation from './uiParts/navigation/Navigation';
+import Color from './const/Color';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -16,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-family: 'Roboto', sans-serif;
     line-height: 1;
+    background-color: ${Color.BG_COLOR};
   }
 
   button{
@@ -25,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     padding: 0;
     appearance: none;
+  }
+
+  *{
+    box-sizing: border-box;
   }
 `
 export const CurrentLineAccount = React.createContext();
