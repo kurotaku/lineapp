@@ -17,6 +17,8 @@
 #
 #  fk_rails_...  (customer_id => customers.id)
 #
-class LineAccount < ApplicationRecord
-  belongs_to :customer, optional: true
+class LineAccountSerializer < BaseSerializer
+  attributes %w[id name]
+
+  belongs_to :customer, optional: true, Serializer: CustomerSerializer
 end

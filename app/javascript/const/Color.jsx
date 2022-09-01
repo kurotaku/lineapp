@@ -1,0 +1,8 @@
+export default {
+  PRIMARY: '#00C44A',
+  BG_COLOR: '#F4F4F4',
+  BORDER_COLOR: '#F1F1F1',
+  TEXT_DARK: '#131424',
+  TEXT_LIGHT: '#7B797B',
+  DANGER: '#E1544B'
+}

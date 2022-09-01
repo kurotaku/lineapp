@@ -1,13 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import liff from '@line/liff'
-import { CurrentLineAccount } from '../../App'
+import { useAccountContext } from '../../../context/AccountContext'
 
 const Home = () => {
-  const currentLineAccount = useContext(CurrentLineAccount);
+  const { account } = useAccountContext();
+
   return (
     <div>
       this is from react.
-      {currentLineAccount.name && <p>ようこそ {currentLineAccount.name} さん</p>}
+      {account.name && <p>ようこそ {account.name} さん</p>}
       <button onClick={logout}>ログアウト</button>
     </div>
   )
