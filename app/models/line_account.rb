@@ -19,4 +19,5 @@
 #
 class LineAccount < ApplicationRecord
   belongs_to :customer, optional: true
+  has_many :bookings, dependent: :destroy
 end

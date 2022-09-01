@@ -2,7 +2,6 @@ module Api
   module Private
     class CustomersController < BaseController
       def index
-        customers = Customer.all
         customers = customers.where(number: params[:number]) if params[:number].present?
         customers = customers.where(phone: params[:phone]) if params[:phone].present?
         render json: customers

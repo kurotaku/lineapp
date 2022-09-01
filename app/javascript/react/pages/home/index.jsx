@@ -1,10 +1,9 @@
 import React from 'react'
 import liff from '@line/liff'
-import { useAccountContext } from '../../../context/AccountContext'
+import { useAccountContext } from '../../context/AccountContext'
 
 const Home = () => {
   const { account } = useAccountContext();
-
   return (
     <div>
       this is from react.

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_18_133243) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_151749) do
+  create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "line_account_id", null: false
+    t.datetime "start_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_account_id"], name: "index_bookings_on_line_account_id"
+  end
+
   create_table "customers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "first_name"
     t.string "family_name"
@@ -33,5 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_18_133243) do
     t.index ["customer_id"], name: "index_line_accounts_on_customer_id"
   end
 
+  add_foreign_key "bookings", "line_accounts"
   add_foreign_key "line_accounts", "customers"
 end
