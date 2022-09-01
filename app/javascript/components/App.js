@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from './AppRoutes'
 import reset from 'styled-reset'
 import { createGlobalStyle } from 'styled-components';
+import liff from '@line/liff';
+import axios from 'axios'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -24,13 +26,48 @@ const GlobalStyle = createGlobalStyle`
     appearance: none;
   }
 `
+export const CurrentLineAccount = React.createContext();
 
 const App = () => {
-  return (
-    <Router>
-      <GlobalStyle />
-      <AppRoutes />
-    </Router>
-  )
+  const [lineAccount, setLineAccount] = useState([]);
+  useEffect(() => {
+    liff.init({
+      liffId: process.env.REACT_APP_LIFF_ID,
+      withLoginOnExternalBrowser: true,
+    }).then(() => {
+      if( liff.isLoggedIn()){
+        const idToken = liff.getDecodedIDToken();
+  
+        var params = {
+          line_user_id: idToken.sub,
+          name: idToken.name
+        }
+  
+        axios.post('/api/private/line_accounts', params)
+        .then(resp => {
+          setLineAccount(resp.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+
+      } else {
+        console.log('ログインしてください');
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
+  return(
+    <CurrentLineAccount.Provider value={lineAccount}>
+      <Router>
+        <GlobalStyle />
+        <AppRoutes />
+      </Router>
+    </CurrentLineAccount.Provider>
+    
+  );
+  
 }
 export default App
