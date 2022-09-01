@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container } from '../../uiParts/column/Container';
-import { BoxRounded } from '../../uiParts/box/Box';
-import { PrimaryLinkBtn } from '../../uiParts/button/Button';
+import { Container } from '../../components/uiParts/column/Container';
+import { BoxRounded } from '../../components/uiParts/box/Box';
+import { PrimaryLinkBtn } from '../../components/uiParts/button/Button';
 import Barcode from 'react-barcode';
-import { useAccountContext } from '../../../context/AccountContext';
+import { useAccountContext } from '../../context/AccountContext';
 
 const Show = () => {
   const {account} = useAccountContext();

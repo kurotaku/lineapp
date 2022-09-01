@@ -3,8 +3,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from './AppRoutes'
 import reset from 'styled-reset'
 import { createGlobalStyle } from 'styled-components';
-import Color from '../const/Color';
-import { AccountProvider } from '../context/AccountContext';
+import Color from './const/Color';
+import { AccountProvider } from './context/AccountContext';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     line-height: 1;
     background-color: ${Color.BG_COLOR};
+  }
+
+  #root{
+    padding-bottom: 104px;
   }
 
   button{

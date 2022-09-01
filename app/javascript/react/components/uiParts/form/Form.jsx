@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Color from '../../../const/Color';
 
 export const DefaultFormStyle = createGlobalStyle`
-  input[type="text"]{
+  input[type="text"], select{
     border: 1px solid ${Color.BORDER_COLOR};
     border-radius: 12px;
     outline: 0;
@@ -33,7 +33,7 @@ const Label = styled.label`
 export const FormGroup = ({label, children}) => {
   return (
     <FormGroupWrap>
-      <Label>{label}</Label><br />
+      {label && <><Label>{label}</Label><br /></>}
       {children}
     </FormGroupWrap>
   )

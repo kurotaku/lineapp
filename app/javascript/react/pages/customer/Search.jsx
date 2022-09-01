@@ -1,13 +1,14 @@
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { useAccountContext } from '../../../context/AccountContext';
-import { Container } from '../../uiParts/column/Container';
-import { BoxRounded } from '../../uiParts/box/Box';
-import * as Form from '../../uiParts/form/Form'
-import { PrimarySubmit } from '../../uiParts/button/Button';
+import { useAccountContext } from '../../context/AccountContext';
+import { Container } from '../../components/uiParts/column/Container';
+import { BoxRounded } from '../../components/uiParts/box/Box';
+import * as Form from '../../components/uiParts/form/Form'
+import { PrimarySubmit } from '../../components/uiParts/button/Button';
 
 const Search = (props) => {
   const {account, setAccount} = useAccountContext();

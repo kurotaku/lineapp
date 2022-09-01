@@ -6,7 +6,7 @@ import { useAccountContext } from '../../context/AccountContext'
 import Navigation from '../uiParts/navigation/Navigation';
 
 const DefaultLayout = () => {
-  const { setAccount } = useAccountContext();
+  const { account, setAccount } = useAccountContext();
 
   useEffect(() => {
     liff.init({

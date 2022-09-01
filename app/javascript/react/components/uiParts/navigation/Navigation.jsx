@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import IconLink from './IconLink'
 import Color from '../../../const/Color'
@@ -61,7 +61,7 @@ const Navigation = () => {
         </CameraButton>
       </Item>
       <Item>
-        <IconLink iconClassName="icon-calender" text="予約" linkTo="/" />
+        <IconLink iconClassName="icon-calender" text="予約" linkTo="/bookings/" />
       </Item>
       <Item>
         <IconLink iconClassName="icon-id" text="会員証" linkTo="/customer/" />
