@@ -34,6 +34,10 @@ const GlobalStyle = createGlobalStyle`
   *{
     box-sizing: border-box;
   }
+
+  .condensed{
+    font-family: 'Roboto Condensed', sans-serif !important;
+  }
 `
 
 const App = () => {

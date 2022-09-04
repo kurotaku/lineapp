@@ -25,8 +25,11 @@ const PointWrap = styled.div`
   color: white;
   h2{
     font-size: 46px;
+    font-weight: bold;
     span{
-      font-size: 16px;
+      font-size: 1.6rem;
+      display: inline-block;
+      margin-left: 4px;
     }
   }
 `
@@ -43,7 +46,7 @@ const Home = () => {
                 <h1>{account.customer.display_name}<span>さん</span></h1>
               </NameWrap>
               <PointWrap>
-                <h2>{account.customer.point.toLocaleString()}<span>pt</span></h2>
+                <h2 className='condensed'>{account.customer.point.toLocaleString()}<span>pt</span></h2>
               </PointWrap>
             </>
           )

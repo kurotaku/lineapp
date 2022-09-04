@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios'
 import Calendar from 'react-calendar';
 import { Container } from '../../components/uiParts/column/Container'
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import * as Form from '../../components/uiParts/form/Form'
 import { PrimarySubmit } from '../../components/uiParts/button/Button';
 import { useAccountContext } from '../../context/AccountContext'
@@ -52,6 +52,12 @@ const CalenderStyle = createGlobalStyle`
     }
   }
 `
+
+const BookingText = styled.h2`
+  font-size: 1.6rem;
+  font-weight: bold;
+`
+
 const OptionList = ({start, end, offset}) => {
   const options = [];
   for(var i = parseInt(start); i <= parseInt(end); i += parseInt(offset)){
@@ -104,7 +110,11 @@ const Index = () => {
     <Container>
       {bookings.map(booking => {
         return(
-          <BoxRounded key={booking.id}>{booking.display_start_at}</BoxRounded>
+          <BoxRounded key={booking.id}>
+            <BookingText>
+              {booking.display_start_at}〜
+            </BookingText>
+          </BoxRounded>
         )
       })}
       <Form.DefaultFormStyle />

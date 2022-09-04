@@ -14,3 +14,17 @@ export const BoxRounded = ({children}) => {
     </Wrap>
   )
 }
+
+const Label = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+`
+
+export const BoxLabel = ({children}) => {
+  return (
+    <Label>
+      {children}
+    </Label>
+  )
+}
