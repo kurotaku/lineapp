@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrap = styled.div`
+const Wrap = styled.section`
   background-color: white;
   border-radius: 16px;
   padding: 20px;

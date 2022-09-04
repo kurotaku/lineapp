@@ -26,10 +26,23 @@ export const PrimaryBtn = styled(Btn)`
   background-color: ${Color.PRIMARY};
 `
 
+export const WhiteBtn = styled(Btn)`
+  border-color: white;
+  background-color: white;
+  color: ${Color.PRIMARY};
+`
+
 export const PrimaryLinkBtn = styled(Btn.withComponent(Link))`
   border-color: ${Color.PRIMARY};
   background-color: ${Color.PRIMARY};
 `
+export const WhiteLinkBtn = styled(Btn.withComponent(Link))`
+  border-color: white;
+  background-color: white;
+  color: ${Color.PRIMARY};
+`
+
+
 export const PrimarySubmit = styled(Btn.withComponent('input'))`
   border-color: ${Color.PRIMARY};
   background-color: ${Color.PRIMARY};
