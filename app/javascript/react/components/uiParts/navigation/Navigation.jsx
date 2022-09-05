@@ -53,7 +53,7 @@ const Navigation = () => {
         <IconLink iconClassName="icon-home" text="ホーム" linkTo="/" />
       </Item>
       <Item>
-        <IconLink iconClassName="icon-invoice" text="クーポン" linkTo="/" />
+        <IconLink iconClassName="icon-invoice" text="クーポン" linkTo="/coupons/" />
       </Item>
       <Item>
         <CameraButton onClick={handleScan}>

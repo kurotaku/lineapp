@@ -21,8 +21,25 @@ ApplicationRecord.transaction do
     {number: random_number(11), family_name: '鈴木', first_name: '五郎', phone: '08011111115'},
   ]
 
-  customers.each do |customer|
-    object = Customer.find_or_initialize_by(customer)
-    object.save!
+  customers.each do |customer| 
+    object = Customer.find_or_initialize_by(phone: customer[:phone])
+    object.assign_attributes(customer)
+    object.save! unless object.persisted?
+  end
+
+  ##########################
+  # クーポン
+  ##########################
+  p '=== Coupon ==='
+
+  coupons = [
+    {end_date: Time.zone.today + 30.days, content: 'お誕生日のお客様全品10%OFF'},
+    {end_date: Time.zone.today + 10.days, content: '3,000円以上お買い上げでポイント2倍'}
+  ]
+
+  coupons.each do |coupon| 
+    object = Coupon.find_or_initialize_by(content: coupon[:content])
+    object.assign_attributes(coupon)
+    object.save! unless object.persisted?
   end
 end

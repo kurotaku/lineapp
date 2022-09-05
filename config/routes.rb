@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resource :customer, only: %w[show], controller: 'site', path: 'customer'
   resources :bookings, only: %w[index], controller: 'site', path: 'bookings'
+  resources :coupons, only: %w[index], controller: 'site', path: 'coupons'
   scope :customer do
     get '/search', to: 'site#search'
   end
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     namespace :private do
       resources :line_accounts, only: %w[create update]
       resources :customers, only: %w[index]
+      resources :coupons, only: %w[index]
       resources :bookings, only: %w[index create destroy]
     end
   end
